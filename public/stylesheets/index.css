@@ -1,0 +1,32 @@
+.nav-li{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.register-input{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#username-tip{
+    display: none;
+}
+
+#repassword-tip{
+    display: none;
+}
+
+#username-tip-nouser {
+    display: none;
+}
+
+#username-tip-nofill{
+    display: none;
+}
+
+#server-message{
+    display: none;
+}
+
+#user-profile{
+    margin-right: 80px;
+}

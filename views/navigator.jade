@@ -1,0 +1,43 @@
+body
+    nav.navbar.navbar-default.nav-fixed-top(role="navigation")
+        .container-fluid
+            .navbar-header
+                a.navbar-brand(href="#") JavaScript
+            div
+                form.navbar-form.navbar-left(role='search')
+                    div.form-group
+                        input.form-control(type='text' placeholder='search')
+                ul.nav.navbar-nav.pull-center
+                    li.nav-li
+                        a(href='#') 首页
+                    li.nav-li
+                        a(href='#') 文章
+                    li.nav-li
+                        a(href='#') 问答
+                    li.nav-li
+                        a(href='#') 作品
+            if(userinfo == undefined || userinfo == {})
+                ul.nav.navbar-nav.pull-right
+                    li.nav-li
+                        a(href='/user/login') 登录
+                    li.nav-li
+                        a(href='/user/register') 注册
+                    li.nav-li
+                        a(href='/user/register')
+            else
+                ul.nav.navbar-nav.pull-right
+                    li#user-profile.dropdown
+                        a.dropdown-toggle(href='#' data-toggle='dropdown')=userinfo.username
+                        ul.dropdown-menu(role='menu')
+                            li
+                                a(href='#') 我的主页
+                            li.divider
+                            li
+                                a(href='#') 私信
+                            li.divider
+                            li
+                                a(href='#') 个人设置
+                            li.divider
+                            li
+                                a(href='/user/signout') 退出
+

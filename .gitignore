@@ -1,0 +1,9 @@
+.DS_Store
+npm-debug.log
+
+/.idea
+
+# files generate by `npm rebuild`
+# need Git 1.8.2+ to support **
+**/node_modules/.bin
+**/node_modules/*/build

@@ -1,0 +1,31 @@
+html
+    include ../resource
+    include ../navigator
+    script(src='/javascripts/user/userLogin.js')
+    div.row
+        div.col-md-6.col-md-offset-3
+            div.panel.panel-default
+                div.panel-heading 用户登录
+                div.panel-body
+                    div.row
+                        div.input-group.col-md-8.col-md-offset-2.register-input
+                            span.input-group-addon
+                                span.glyphicon.glyphicon-user
+                            input#username.form-control(type='text' placeholder='用户名')
+                        div.input-group.col-md-8.col-md-offset-2#username-tip-nouser
+                            span.text-danger 该用户名不存在
+                        div.input-group.col-md-8.col-md-offset-2#username-tip-nofill
+                            span.text-danger 用户名不能为空
+
+
+                    div.row
+                        div.input-group.col-md-8.col-md-offset-2.register-input
+                            span.input-group-addon
+                                span.glyphicon.glyphicon-lock
+                            input#password.form-control(type='password' placeholder='密码')
+
+                        div.input-group.col-md-8.col-md-offset-2#server-message
+                            span.text-danger
+                    div.row
+                        div.input-group.col-md-8.col-md-offset-2.register-input
+                            button#login-btn.btn.btn-primary.btn-block 登录
