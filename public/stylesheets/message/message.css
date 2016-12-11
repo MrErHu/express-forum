@@ -1,0 +1,36 @@
+.message-title-row{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: solid 1px #cccccc;
+}
+.message-title{
+    padding-top: 5px;
+}
+.no-lr-padding{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.message-item{
+    border-bottom: solid 1px #cccccc;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+.message-user-image{
+    border-radius: 4px;
+    width: 50px;
+    height: 50px;
+}
+.message-content{
+    word-break:break-all;
+    font-size: 13px;
+    color: #222222;
+}
+.message-footer{
+    position: relative;
+    color: #999999;
+    font-size: 13px;
+}
+.message-footer.item{
+    padding-left: 5px;
+    padding-right: 5px;
+}

@@ -1,5 +1,13 @@
 /**
- * Created by mr_wang on 2016/11/16.
+ * Created by wanglei on 2016/11/16.
+ * username String 用户名 唯一
+ * password String 密码
+ * avatar String 头像
+ * profile String 个人简介
+ * credit Number 个人积分
+ * email String 邮箱
+ * phone String 手机号码
+ * createAt String 用户创建时间
  */
 
 var mongoose = require('mongoose');

@@ -19,7 +19,7 @@ userController.queryUsernameNum = function (username, callback) {
         if(err){
             console.error(err);
         }else{
-            callback(data);
+            return callback(data);
         }
     });
 }
