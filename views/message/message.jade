@@ -8,7 +8,7 @@ html
             div.row.message-title-row
                 div.col-md-2.message-title.no-lr-padding 最近联系
                 div.col-md-1.col-md-offset-9.no-lr-padding
-                    button.btn.btn-primary.btn-sm 写私信
+                    button.btn.btn-primary.btn-sm(data-toggle="modal" data-target="#writeMessage") 写私信
             //div.row.message-item
             //    div.col-md-1.no-lr-padding.message-image
             //        img.message-user-image(src='/images/zhihu.jpg')
@@ -23,6 +23,26 @@ html
             //                span |
             //                a.message-footer.item 删除
 
+
+    #writeMessage.modal.fade(style='margin-top: 50px', data-backdrop="static", tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+        .modal-dialog(style='width: 430px',role='document')
+            .modal-content
+                .modal-header(style='padding:5px 15px')
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                        span(aria-hidden='true') ×
+                    h5#updateReaderNumLabel.model-title 发送私信
+                .modal-body
+                    .row
+                        .col-md-2.send-to-user 给发:
+                        .col-md-8
+                            input(type="text" class="form-control" placeholder="Username")
+                    .row.message-write-content
+                        .col-md-2.send-message 内容:
+                        .col-md-10
+                            textarea#message-area(rows='3' class="form-control")
+                .modal-footer
+                    button.btn.btn-link(type='button', data-dismiss='modal', aria-label='Close') 取消
+                    button.btn.btn-primary(type='button') 确定
 
 
 

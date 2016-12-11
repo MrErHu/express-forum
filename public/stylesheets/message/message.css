@@ -34,3 +34,21 @@
     padding-left: 5px;
     padding-right: 5px;
 }
+.no-padding{
+    padding: 0px;
+}
+.send-to-user{
+    padding-top: 7px;
+    color: #999999;
+}
+.send-message {
+    padding-top: 7px;
+    color: #999999;
+}
+#message-area{
+    width: 100%;
+    resize: none;
+}
+.message-write-content{
+    padding-top: 10px;
+}
