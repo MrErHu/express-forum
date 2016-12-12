@@ -4,12 +4,6 @@
 
 var Message = require('../model/Message');
 
-var Message ={
-    sendMessage: sendMessage,
-    commonMes: 1,
-    sysMes: 2
-};
-
 /**
  * 发送私信方法
  * @param sender 发送人ID
@@ -17,7 +11,7 @@ var Message ={
  * @param mesType 消息类型 1->普通消息 2->系统消息
  * @param message 私信内容
  */
-function sendMessage(sender,receiver,mesType,message,callback) {
+module.exports.sendMessage = function (sender,receiver,mesType,message,callback) {
     if(!sender || !receiver || !mesType || !message) {
         //过滤掉无效信息
         return callback(false);
@@ -52,6 +46,7 @@ function sendMessage(sender,receiver,mesType,message,callback) {
             }
         });
     }
-}
+};
 
-exports = Message;
+module.exports.commonMes = 1;
+module.exports.sysMes = 2;

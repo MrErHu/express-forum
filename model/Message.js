@@ -9,7 +9,7 @@
  * send_time: Date 默认时间为当前消息创建时间
  * status: Number 消息状态 1：未读 2：已读 3：删除
  */
-var moogoose = require('mongoose');
+var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var MessageSchema = new Schema({
@@ -25,4 +25,4 @@ var MessageSchema = new Schema({
 
 var Message = mongoose.model("Message", MessageSchema);
 
-exports.Message = Message;
+module.exports = Message;

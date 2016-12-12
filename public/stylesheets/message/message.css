@@ -52,3 +52,9 @@
 .message-write-content{
     padding-top: 10px;
 }
+#no-user{
+    display: none;
+}
+#has-null{
+    display: none;
+}

@@ -22,7 +22,18 @@ userController.queryUsernameNum = function (username, callback) {
             return callback(data);
         }
     });
-}
+};
+
+userController.queryUserByName = function (username, callback) {
+    User.findOne({
+        username: username
+    },function (err, user) {
+        if(err){
+            console.log(err);
+        }
+        return callback(user);
+    });
+};
 
 
 module.exports = userController;

@@ -19,7 +19,7 @@ var UserSchema = new Schema({
     avatar: String,
     profile: String,
     credit: Number, //积分
-    email: {type: String, unique: true},
+    email: String,
     phone: String,
     createdAt: {type:Date, default:Date.now }
 });
