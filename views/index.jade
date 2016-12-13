@@ -2,3 +2,15 @@ doctype html
 html(lang='en')
   include ./resource
   include ./navigator
+  div.row
+    div.col-md-8
+      div.panel.panel-default.content-panel
+        div.panel-body
+          ul.nav.nav-tabs.nav-website(role='tablist')
+            li.active(role="presentation")
+              a(href='') 论坛
+            li(role="presentation")
+              a(href='') 问答
+            li(role='presentation')
+              a(href='') 作品
+    div.col-md-4

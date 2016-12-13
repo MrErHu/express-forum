@@ -1,3 +1,6 @@
+body{
+    background-color: #eee;
+}
 .nav-li{
     margin-left: 10px;
     margin-right: 10px;
@@ -29,4 +32,11 @@
 
 #user-profile{
     margin-right: 80px;
+}
+
+.nav-website{
+    margin: 0px 20px;
+}
+.content-panel{
+    margin: 0px 40px;
 }
