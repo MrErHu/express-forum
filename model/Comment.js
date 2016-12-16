@@ -8,7 +8,7 @@
  * status Number 贴子的状态 -1表示被删除 0表示正常
  * createdAt Date 创建时间
  * favNum 点赞数量
- * 
+ *
  */
 
 var mongoose = require('mongoose');

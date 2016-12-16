@@ -16,10 +16,10 @@ var Schema = mongoose.Schema;
 var UserSchema = new Schema({
     username: {type: String, unique: true},
     password: String,
-    avatar: String,
-    profile: String,
-    credit: Number, //积分
-    email: String,
+    avatar: {type:String, default:''},
+    profile: {type:String, default:"这家伙很懒，什么个性签名都没有留下"},
+    credit: {type: Number, default: 0}, //积分
+    email: {type:String, unique: true},
     phone: String,
     createdAt: {type:Date, default:Date.now }
 });

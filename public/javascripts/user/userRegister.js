@@ -31,11 +31,6 @@ $(document).ready(function () {
         });
     });
 
-    $('#username').focus(function () {
-        $('#username-tip').css('display','none');
-        $('#register-btn').attr('disabled',false);
-    });
-
     /**
      * 判断两次输入的密码是否一致
      */
@@ -55,13 +50,40 @@ $(document).ready(function () {
     });
 
     /**
-     * 清除提示效果
+     * 判断当前邮箱是否已经注册
      */
-    $('#repassword').focus(function () {
-        $('#register-btn').attr('disabled', false);
-        $('#repassword-tip').css('display', 'none');
+    $('#email').blur(function () {
+        var email = $('#email').val();
+        if(!email){
+            return;
+        }
+        $.ajax({
+            url: '/user/checkUseremail',
+            type: 'post',
+            dataType: 'json',
+            data:{
+                email: email
+            },
+            success: function (data) {
+                if(data && data.code == -1){
+                    $('#register-btn').attr('disabled', true);
+                    $('#email-tip').css('display', 'inline');
+                }else {
+                    $('#register-btn').attr('disabled', false);
+                    $('#email-tip').css('display', 'none');
+                }
+            }
+        });
+
+
     });
 
+    /**
+     * 清除提示效果
+     */
+    $('#repassword').focus(clearTip);
+    $('#username').focus(clearTip);
+    $('#email-tip').focus(clearTip);
 
     /**
      * 提交按钮
@@ -69,6 +91,7 @@ $(document).ready(function () {
     $('#register-btn').click(function () {
         var username = $('#username').val();
         var password = $('#password').val();
+        var email = $('#email').val();
         if(username && password){
             //提交表单
             $.ajax({
@@ -77,7 +100,8 @@ $(document).ready(function () {
                 dataType: 'json',
                 data: {
                     username: username,
-                    password: password
+                    password: password,
+                    email: email
                 },
                 success: function (data) {
                     if(data && data.status && data.status == 'success'){
@@ -91,7 +115,11 @@ $(document).ready(function () {
         }
     });
 
-
+    function clearTip() {
+        $('#register-btn').attr('disabled', false);
+        $('#repassword-tip').css('display', 'none');
+        $('#email-tip').css('display','none');
+    }
 
 });
 

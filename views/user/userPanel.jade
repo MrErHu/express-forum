@@ -1,0 +1,18 @@
+mixin userPanel(title,user)
+    div.panel.panel-default.content-panel-right
+        div.panel-heading
+            div=title
+        div.panel-body
+            div.row
+                div.col-md-4
+                    a.user_avatar
+                        img.panel-avatar(src=user.avatar)
+                div.col-md-8
+                    div.panel-name=user.username
+            div.row.user-div
+                - var str = "积分:"+user.credit
+                div.col-md-12
+                    span=str
+            div.row.user-div
+                div.col-md-12
+                    span=user.profile

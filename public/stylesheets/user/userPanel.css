@@ -1,0 +1,11 @@
+.panel-avatar{
+    width: 48px;
+    height: 48px;
+    border-radius: 4px;
+}
+.panel-name{
+    padding-top: 15px;
+}
+.user-div{
+    margin-top: 10px;
+}

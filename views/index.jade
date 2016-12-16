@@ -1,10 +1,11 @@
 doctype html
 html(lang='en')
   include ./resource
+  link(rel="stylesheet" type="text/css" href='/stylesheets/user/userPanel.css')
   include ./navigator
   div.row
-    div.col-md-8
-      div.panel.panel-default.content-panel
+    div.col-md-9.col-sm-9
+      div.panel.panel-default.content-panel-left
         div.panel-body
           ul.nav.nav-tabs.nav-website(role='tablist')
             li.active(role="presentation")
@@ -13,4 +14,7 @@ html(lang='en')
               a(href='') 问答
             li(role='presentation')
               a(href='') 作品
-    div.col-md-4
+    div.col-md-3.col-sm-3
+      if(userinfo)
+        include ./user/userPanel
+        +userPanel("我的信息",user)

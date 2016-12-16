@@ -1,33 +1,16 @@
 body{
     background-color: #eee;
+    margin: 0px;
+}
+.no-margin{
+    margin: 0px;
+}
+.no-padding{
+    padding: 0px;
 }
 .nav-li{
     margin-left: 10px;
     margin-right: 10px;
-}
-.register-input{
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-#username-tip{
-    display: none;
-}
-
-#repassword-tip{
-    display: none;
-}
-
-#username-tip-nouser {
-    display: none;
-}
-
-#username-tip-nofill{
-    display: none;
-}
-
-#server-message{
-    display: none;
 }
 
 #user-profile{
@@ -37,6 +20,12 @@ body{
 .nav-website{
     margin: 0px 20px;
 }
-.content-panel{
-    margin: 0px 40px;
+.content-panel-left{
+    float: left;
+    margin-left: 40px;
+    width: 95%;
+}
+.content-panel-right{
+    float: left;
+    width: 90%;
 }

@@ -7,6 +7,7 @@ var path = require('path');
 var User = require('../model/User');
 var userController  = require('../controller/userController');
 var router = express.Router();
+var AuthCheck = require('../middlewares/AuthChecker');
 /**
  * 渲染登录界面
  */
@@ -38,7 +39,7 @@ router.post('/login', function (req, res) {
                 message: '服务器出错了'
             });
         }else {
-            if(password == user.password){
+            if(user && password == user.password){
                 //密码正确
                 req.session.userinfo = {
                     id: user._id,
@@ -76,6 +77,7 @@ router.get('/register', function (req, res) {
 router.post('/register', function (req, res, next) {
     const username = req.body.username;
     const password = req.body.password;
+    const email = req.body.email;
 
     if(!username && !password){
         res.json({
@@ -85,7 +87,8 @@ router.post('/register', function (req, res, next) {
     }
     userController.registerUser({
         username:username,
-        password:password
+        password:password,
+        email: email
     },function (err,item) {
         if(err){
             console.log(JSON.stringify(err));
@@ -102,11 +105,11 @@ router.post('/register', function (req, res, next) {
         }
     })
 });
-
+/**
+ * 查询是否存在对应的用户名
+ */
 router.post('/checkUsername',function (req, res, next) {
     const username = req.body.username;
-    console.log('json:'+JSON.stringify(req.body));
-    console.log(username);
     userController.queryUsernameNum(username,function (data) {
         if(data == 0){
             res.json({'status': 'nouser'});
@@ -116,6 +119,28 @@ router.post('/checkUsername',function (req, res, next) {
     });
 });
 
+/**
+ * 查询邮箱是否已经注册
+ */
+router.post('/checkUseremail', function (req, res, next) {
+    const email = req.body.email;
+    console.log(email+' : '+userController.createUserAvatar(email));
+    userController.queryUserByEmail(email,function (user) {
+        if(!!user){
+            res.json({
+                code: -1
+            });
+        }else{
+            res.json({
+                code: 0
+            });
+        }
+    });
+});
+
+/**
+ * 退出登录
+ */
 router.get('/signout',function (req, res, next) {
     req.session.destroy(function (err) {
         if(err){
@@ -130,7 +155,24 @@ router.get('/signout',function (req, res, next) {
         }
     });
 
-})
+});
+
+/**
+ * 渲染设置当前登录用户的信息的页面
+ */
+router.get('setting',function (req, res, next) {
+    //验证用户是否登录
+    AuthCheck(req, res, function () {
+        var userinfo = req.session.userinfo;
+        var id = userinfo && userinfo.id;
+        userController.queryUserById(id,
+            function (user) {
+                res.render('user/setting',user);
+        });
+    });
+});
+
+
 
 
 

@@ -1,6 +1,7 @@
 html
     include ../resource
     include ../navigator
+    link(rel="stylesheet" type="text/css" href='/stylesheets/user/user.css')
     script(src='/javascripts/user/userRegister.js')
     div.row
         div.col-md-6.col-md-offset-3
@@ -14,6 +15,13 @@ html
                             input#username.form-control(type='text' placeholder='用户名')
                         div.input-group.col-md-8.col-md-offset-2#username-tip
                             span.text-danger 该用户名已经被注册
+                    div.row
+                        div.input-group.col-md-8.col-md-offset-2.register-input
+                            span.input-group-addon
+                                span.glyphicon.glyphicon-envelope
+                            input#email.form-control(type='text' placeholder='邮箱')
+                        div.input-group.col-md-8.col-md-offset-2#email-tip
+                            span.text-danger 该邮箱已经被注册
                     div.row
                         div.input-group.col-md-8.col-md-offset-2.register-input
                             span.input-group-addon
