@@ -18,3 +18,13 @@ html(lang='en')
       if(userinfo)
         include ./user/userPanel
         +userPanel("我的信息",user)
+
+      div.panel.panel-default.content-panel-right
+        div.panel-body(style='padding:10px 15px')
+          div.col-md-12
+            a.btn.btn-success(href='/topic/create') 发布新话题
+
+      div.panel.panel-default.content-panel-right
+        div.panel-heading
+          div 积分榜
+        div.panel-body

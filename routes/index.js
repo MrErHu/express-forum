@@ -19,7 +19,6 @@ router.get('/', function(req, res, next) {
 });
 
 
-
 //根据用户是否登录来获取用户的登录信息
 function renderLoginUser(req, data, callback) {
   if (req.session && req.session.userinfo) {

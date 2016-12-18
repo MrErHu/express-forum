@@ -1,0 +1,37 @@
+html
+    include ../resource
+    include ../navigator
+    link(rel="stylesheet" type="text/css" href='/stylesheets/topic/createTopic.css')
+    link(rel="stylesheet" type="text/css" href='/editor-md/css/editormd.css')
+    script(src='/editor-md/editormd.min.js')
+    div.row
+        div.col-md-9.col-sm-9
+            div.panel.panel-default.content-panel-left
+                div.panel-heading 发布话题
+                div.panel-body
+                    div.rows
+                        div.col-md-12.no-padding
+                            div.col-md-1.v-center-text
+                                span 选择板块:
+                            div.col-md-4
+                                select.form-control
+                                    option 论坛
+                                    option 问答
+                                    option 作品
+                    div.rows
+                        div.col-md-12.topic-splite
+                            input.form-control#title(type="text" placeholder="标题字数10字以上")
+                    div.rows
+                        div.col-md-12.topic-splite
+                            div#editormd
+
+    script.
+        //添加MarkDown编辑器
+        $(function () {
+            testEditor = editormd({
+                id: "editormd",
+                width: "100%",
+                height: 640,
+                path: "/editor-md/lib/"
+            });
+        });

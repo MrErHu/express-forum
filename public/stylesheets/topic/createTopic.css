@@ -1,0 +1,23 @@
+.no-padding{
+    padding: 0px;
+}
+
+.content-panel-left{
+    float: left;
+    margin-left: 40px;
+    width: 95%;
+}
+.content-panel-right{
+    float: left;
+    width: 90%;
+}
+.v-center-text{
+    padding-top: 7px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.topic-splite{
+    margin-top: 12px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
