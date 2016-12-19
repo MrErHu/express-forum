@@ -29,3 +29,48 @@ body{
     float: left;
     width: 90%;
 }
+.topic_list{
+    width: 100%;
+}
+.cell{
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    border-bottom: 1px solid #dddddd;
+}
+.cell-author-img{
+    position: relative;
+    float: left;
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+}
+.reply_count{
+    position: relative;
+    float: left;
+    width: 80px;
+    height: 29px;
+    line-height: 29px;
+    text-align: center;
+}
+.last-time{
+    position: relative;
+    float: right;
+    width: 80px;
+    height: 29px;
+    line-height: 29px;
+    font-size: 12px;
+}
+.user-small-avatar{
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    margin-right: 8px;
+}
+.cell-title{
+    position: relative;
+    float: left;
+    height: 29px;
+    line-height: 29px;
+    font-size: 16px;
+}

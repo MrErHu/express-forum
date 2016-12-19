@@ -63,14 +63,38 @@ userController.queryUserByEmail = function (email, callback) {
     });
 };
 
-userController.createUserAvatar= function(email){
-    if(!email){
+/**
+ * 生成用户的gravatar头像地址
+ * @param email 用户邮箱地址
+ * @returns {*}
+ */
+userController.createUserAvatar = function (email) {
+    if (!email) {
         return;
     }
     var url = gravatar.url(email, {protocol: 'http', s: '100'});
     return url;
 };
 
-
+/**
+ * 增加用户的积分
+ * @param userid 用户id
+ * @param credit 增加的积分数
+ * @param callback 回调函数
+ */
+userController.addCredit = function (userid, credit, callback) {
+    User.update({
+        _id: userid
+    }, {
+        '$inc':{credit: parseInt(credit)}
+    },function (err) {
+        if(err){
+            console.log(err);
+            return callback(false);
+        }else{
+            return callback(true);
+        }
+    });
+};
 
 module.exports = userController;

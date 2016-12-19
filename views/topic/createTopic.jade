@@ -14,24 +14,19 @@ html
                             div.col-md-1.v-center-text
                                 span 选择板块:
                             div.col-md-4
-                                select.form-control
-                                    option 论坛
-                                    option 问答
-                                    option 作品
+                                select#group.form-control
+                                    option(value=1) 论坛
+                                    option(value=2) 问答
+                                    option(value=3) 作品
                     div.rows
                         div.col-md-12.topic-splite
-                            input.form-control#title(type="text" placeholder="标题字数10字以上")
+                            input#title.form-control(type="text" placeholder="标题字数10字以上")
+                            p.text-danger#title-warning(style='display:none')
                     div.rows
                         div.col-md-12.topic-splite
                             div#editormd
+                    div.rows
+                        div.col-md-12.topic-splite
+                            button#commit.btn.btn-primary 提交
 
-    script.
-        //添加MarkDown编辑器
-        $(function () {
-            testEditor = editormd({
-                id: "editormd",
-                width: "100%",
-                height: 640,
-                path: "/editor-md/lib/"
-            });
-        });
+    script(src='/javascripts/topic/createTopic.js')
