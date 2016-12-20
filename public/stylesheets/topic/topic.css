@@ -1,0 +1,30 @@
+.topic_title{
+    font-size: 22px;
+    font-weight: 700;
+    display: inline;
+    width: 80%;
+}
+.topic_nav{
+    margin-top: 15px;
+    color: #838383;
+    font-size: 12px;
+    height: 50px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.topic_nav_time{
+    position: relative;
+    float: left;
+}
+.topic_author{
+    margin-left: 10px;
+}
+.topic_watch{
+    margin-left:10px;
+}
+.topic_favbtn{
+    position: relative;
+    float: right;
+}
+.topic_content{
+    padding: 10px;
+}

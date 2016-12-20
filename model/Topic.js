@@ -23,7 +23,7 @@ var TopicSchema = new Schema({
     watchedNum: {type: Number, default: 0},
     favUser: [{type: Schema.ObjectId, ref:'User'}],
     comment: [{type: Schema.ObjectId, ref:'Comment'}],
-    content: {type: String},
+    content: {type: String}
 });
 
 var Topic = mongoose.model('Topic', TopicSchema);

@@ -15,15 +15,14 @@ html(lang='en')
             li(role='presentation')
               a(href='') 作品
           div.topic_list
-            div.cell
-              img.cell-author-img(src='http://www.gravatar.com/avatar/d81c6d1adba59b48138539cc3662d750?s=100')
-              span.reply_count 2/33
-              span.cell-title Node 内置的 assert 你们有在用吗
-              div.last-time
-                img.user-small-avatar(src='http://www.gravatar.com/avatar/d81c6d1adba59b48138539cc3662d750?s=100')
-                span.last_active_time 13 分钟前
-
-
+            each topic in topicList
+              div.cell
+                img.cell-author-img(src=topic.author.avatar)
+                span.reply_count= topic.comment.length+"/"+topic.watchedNum
+                -var topicUrl = '/topic/'+topic._id
+                a.cell-title(href=topicUrl)=topic.title
+                div.last-time
+                  span.last_active_time=topic.updateAtStr
 
     div.col-md-3.col-sm-3
       if(userinfo)

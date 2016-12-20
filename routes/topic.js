@@ -54,4 +54,21 @@ router.post('/create', function (req, res, next) {
     });
 });
 
+
+router.get('/:topicId',function (req, res, next) {
+    var topicId = req.params.topicId;
+    var data = {
+        title: 'JavaScript',
+        userinfo: req.session.userinfo
+    };
+    //渲染当前登录用户
+    renderLoginUser(req, data, function (data) {
+        topicController.getTopic(topicId, function (topic) {
+            data.topic = topic;
+            console.log(JSON.stringify(data));
+            res.render('topic/topic',data);
+        });
+    });
+});
+
 module.exports = router;

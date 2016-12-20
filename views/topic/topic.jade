@@ -1,0 +1,31 @@
+doctype html
+html(lang='en')
+    include ../resource
+    link(rel="stylesheet" type="text/css" href='/stylesheets/user/userPanel.css')
+    link(rel="stylesheet" type="text/css" href='/stylesheets/topic/topic.css')
+    include ../navigator
+    div.row
+        div.col-md-9.col-sm-9
+            div.panel.panel-default.content-panel-left
+                div.panel-body
+                    div.col-md-12
+                        div.topic_title=topic.title
+                    div.col-md-12.topic_nav
+                        span.topic_nav_time="发布于"+topic.createdAtStr
+                        span.topic_author="作者"
+                            a=topic.author.username
+                        span.topic_watch=topic.watchedNum+"次阅读"
+                        span.topic_favbtn
+                            button.btn.btn-success 收藏
+                    div.col-md-12.no-paddingcn
+                        div.topic_content#topic_content=topic.content
+
+        div.col-md-3.col-sm-3
+            include ../user/userPanel
+            +userPanel("作者",topic.author)
+
+    script(src='/javascripts/lib/markdown.min.js')
+    script.
+        var content = $('#topic_content').html();
+        $('#topic_content').html(markdown.toHTML(content));
+
