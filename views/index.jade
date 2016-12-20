@@ -38,3 +38,11 @@ html(lang='en')
         div.panel-heading
           div 积分榜
         div.panel-body
+          div.credit_userlist
+            -each userCredit in userCreditList
+              div.row
+                div.col-md-3
+                  span.userCreditName=userCredit.credit
+                div.col-md-4
+                  span.userCreditName
+                    a.userCredit.username(href='')=userCredit.username

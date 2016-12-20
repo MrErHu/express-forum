@@ -21,7 +21,9 @@ var UserSchema = new Schema({
     credit: {type: Number, default: 0}, //积分
     email: {type:String, unique: true},
     phone: String,
-    createdAt: {type:Date, default:Date.now }
+    createdAt: {type:Date, default:Date.now },
+    github: {type: String, default:''},
+    website:{type: String, default:''}
 });
 
 var User = mongoose.model("User", UserSchema);

@@ -97,4 +97,34 @@ userController.addCredit = function (userid, credit, callback) {
     });
 };
 
+/**
+ * 获得本站积分最高的10个用户
+ * @param callback
+ */
+userController.getUserCreditTop = function (callback) {
+    User.find({}, {
+        username: 1,
+        credit: 1
+    }).sort({"credit": -1}).lean().exec(function (err, userList) {
+        if (err) {
+            console.log(err);
+            return callback([]);
+        } else {
+            return callback(userList);
+        }
+    });
+};
+
+/*
+ var UserSchema = new Schema({
+ username: {type: String, unique: true},
+ password: String,
+ avatar: {type:String, default:''},
+ profile: {type:String, default:"这家伙很懒，什么个性签名都没有留下"},
+ credit: {type: Number, default: 0}, //积分
+ email: {type:String, unique: true},
+ phone: String,
+ createdAt: {type:Date, default:Date.now }
+ */
+
 module.exports = userController;

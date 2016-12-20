@@ -6,6 +6,14 @@
 .panel-name{
     padding-top: 15px;
 }
-.user-div{
+.user-div {
     margin-top: 10px;
+}
+
+
+.credit_userlist{
+    height: 180px;
+}
+.userCreditName{
+    margin-right: 35px;
 }

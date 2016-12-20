@@ -8,6 +8,8 @@ var User = require('../model/User');
 var userController  = require('../controller/userController');
 var router = express.Router();
 var AuthCheck = require('../middlewares/AuthChecker');
+var tool = require('../controller/tool');
+var renderLoginUser = tool.renderLoginUser;
 /**
  * 渲染登录界面
  */
@@ -160,14 +162,19 @@ router.get('/signout',function (req, res, next) {
 /**
  * 渲染设置当前登录用户的信息的页面
  */
-router.get('setting',function (req, res, next) {
-    //验证用户是否登录
+router.get('/setting', function (req, res, next) {
+    var userinfo = req.session.userinfo;
+    var data = {
+        title: 'JavaScript',
+        userinfo: userinfo
+    };
     AuthCheck(req, res, function () {
-        var userinfo = req.session.userinfo;
-        var id = userinfo && userinfo.id;
-        userController.queryUserById(id,
-            function (user) {
-                res.render('user/setting',user);
+        renderLoginUser(req, data, function (data) {
+            var id = userinfo && userinfo.id;
+            userController.queryUserById(id, function (user) {
+                data.user = user;
+                res.render('user/setting', data);
+            });
         });
     });
 });

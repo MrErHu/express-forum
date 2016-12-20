@@ -16,11 +16,14 @@ router.get('/', function(req, res, next) {
     userinfo: req.session.userinfo
   };
   //渲染当前登录用户
-  renderLoginUser(req, data, function () {
+  renderLoginUser(req, data, function (data) {
     topicController.getTopicList(0,20,1,function (topicList) {
       data.topicList = topicList;
-      res.render('index',data);
-    })
+      userController.getUserCreditTop(function (userCreditList) {
+        data.userCreditList = userCreditList;
+        res.render('index',data);
+      });
+    });
   });
 });
 
