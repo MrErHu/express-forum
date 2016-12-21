@@ -1,6 +1,7 @@
 html
     include ../resource
     include ../navigator
+    link(rel='stylesheet' type='text/css' href='/stylesheets/user/setting.css')
     div.row
         div.col-md-9.col-sm-9
             div.panel.panel-default.content-panel-left
@@ -13,3 +14,22 @@ html
             div.panel.panel-default.content-panel-left
                 div.panel-heading 密码修改
                 div.panel-body
+                    div.row
+                        div.col-md-3.col_left 旧密码:
+                        div.col-md-6
+                            input#old_pwd.form-control(type='password')
+                    div.row
+                        div.col-md-3.col_left 密码:
+                        div.col-md-6
+                            input#pwd.form-control(type='password')
+                    div.row
+                        div.col-md-3.col_left 重复密码:
+                        div.col-md-6
+                            input#re_pwd.form-control(type='password')
+                    div.row
+                        div.col-md-5.col-md-offset-2
+                            span#pwd-tip.text-danger(style='display:none')
+                    div.row
+                        div.col-md-3.col_left
+                            button#pwd-btn.btn.btn-success 提交
+    script(src='/javascripts/user/setting.js')

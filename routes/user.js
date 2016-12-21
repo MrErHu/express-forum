@@ -179,6 +179,65 @@ router.get('/setting', function (req, res, next) {
     });
 });
 
+/**
+ * 修改用户密码
+ */
+router.put('/changePwd', function (req, res) {
+    var old_pwd = req.body.old_pwd;
+    var pwd = req.body.pwd;
+
+    if(!old_pwd || !pwd){
+        res.json({
+            code: -1,
+            message: '参数错误'
+        });
+        return;
+    }
+    var userinfo = req.session.userinfo;
+    var data = {
+        title: 'JavaScript',
+        userinfo: userinfo
+    };
+    AuthCheck(req, res, function () {
+        renderLoginUser(req, data, function (data) {
+            var id = userinfo && userinfo.id;
+            userController.queryUserById(id, function (user) {
+                if(user.password == old_pwd){
+                    userController.changePwd(id,pwd,function (result) {
+                        if(!result){
+                            res.json({
+                                code: -1,
+                                message: '服务器错误'
+                            });
+                        }else {
+                            //清空用户session
+                            req.session.destroy(function (err) {
+                                if(err){
+                                    console.log('退出出错');
+                                    res.json({
+                                        status: 'fail',
+                                        message: '服务器出错了'
+                                    });
+                                }else{
+                                    //成功退出，重定向到首页
+                                    res.json({
+                                        code: 0,
+                                        message: 'OK'
+                                    });
+                                }
+                            });
+                        }
+                    });
+                }else{
+                    res.json({
+                        code: -1,
+                        message: '原密码错误'
+                    });
+                }
+            });
+        });
+    });
+});
 
 
 

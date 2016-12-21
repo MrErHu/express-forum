@@ -115,6 +115,29 @@ userController.getUserCreditTop = function (callback) {
     });
 };
 
+/**
+ * 修改用户的密码
+ * @param uid 用户唯一id
+ * @param password 要修改为的密码
+ * @param callback 回调函数
+ */
+userController.changePwd = function (uid, password, callback) {
+    User.update({
+        _id: uid,
+    },{
+        "$set":{
+            password: password
+        }
+    },function (err) {
+        if(err){
+            console.log(err);
+            callback(false);
+        }else {
+            callback(true);
+        }
+    });
+};
+
 /*
  var UserSchema = new Schema({
  username: {type: String, unique: true},
