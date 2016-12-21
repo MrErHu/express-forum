@@ -8,12 +8,25 @@ html(lang='en')
       div.panel.panel-default.content-panel-left
         div.panel-body
           ul.nav.nav-tabs.nav-website(role='tablist')
-            li.active(role="presentation")
-              a(href='') 论坛
-            li(role="presentation")
-              a(href='') 问答
-            li(role='presentation')
-              a(href='') 作品
+            if tag == 1
+              li.active(role="presentation")
+                a(href='/?tag=1') 论坛
+            else
+              li(role="presentation")
+                a(href='/?tag=1') 论坛
+            if tag == 2
+              li.active(role="presentation")
+                a(href='/?tag=2') 问答
+            else
+              li(role="presentation")
+                a(href='/?tag=2') 问答
+            if tag ==3
+              li.active(role='presentation')
+                a(href='/?tag=3') 作品
+            else
+              li(role='presentation')
+                a(href='/?tag=3') 作品
+
           div.topic_list
             each topic in topicList
               div.cell
