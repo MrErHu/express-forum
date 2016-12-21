@@ -34,11 +34,39 @@ $('#pwd-btn').click(function () {
             }
             if(result && result.code !=0 && result.message){
                 $('#pwd-tip').css('display','inline');
-                $('#pwd-tip').html(message);
+                $('#pwd-tip').html(result.message);
             }
         }
     });
+});
 
+
+$('#set-btn').click(function () {
+    var email = $('#email').val();
+    var github = $('#github').val();
+    var website = $('#website').val();
+    var profile = $('#profile').val();
+
+    $.ajax({
+        url: '/user',
+        type: 'PUT',
+        data: {
+            email: email,
+            github: github,
+            website: website,
+            profile: profile
+        },
+        dataType: 'json',
+        success: function (result) {
+            if(result && result.code == 0){
+                window.location.reload();
+            }else {
+                $('#set-tip').css('display','inline');
+                $('#set-tip').html(result.message);
+            }
+        }
+
+    });
 });
 
 

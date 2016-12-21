@@ -74,6 +74,54 @@ router.get('/register', function (req, res) {
 });
 
 /**
+ *
+ */
+router.put('/',function (req, res) {
+    var email = req.body.email || '';
+    var github = req.body.github || '';
+    var website = req.body.website || '';
+    var profile = req.body.profile || '';
+    var id = req.session.userinfo.id;
+
+    AuthCheck(req,res,function () {
+        //当前用户已登录
+        //如果存在
+        if(!email){
+            //查询修改的邮箱在本站是否已经注册过
+            userController.queryEmailNum(email,function (num) {
+                if(num != 0){
+                    res.json({
+                        code: -1,
+                        message: '邮箱已经被注册'
+                    });
+                    return;
+                }
+            });
+        }
+
+        userController.updateUser(id,{
+            email: email,
+            github: github,
+            website: website,
+            profile: profile
+        },function (result) {
+            if(result){
+                res.json({
+                    code: 0,
+                    message: 'success'
+                });
+            }else{
+                res.json({
+                    code: -1,
+                    message: '服务器内部错误'
+                });
+            }
+        });
+    });
+});
+
+
+/**
  * 注册进行的操作
  */
 router.post('/register', function (req, res, next) {

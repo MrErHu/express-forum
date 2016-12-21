@@ -30,6 +30,17 @@ userController.queryUsernameNum = function (username, callback) {
     });
 };
 
+userController.queryEmailNum = function (email, callback) {
+    User.count({email:email},function (err,data) {
+        if(err){
+            console.error(err);
+            return callback(undefined);
+        }else{
+            return callback(data);
+        }
+    });
+};
+
 userController.queryUserByName = function (username, callback) {
     User.findOne({
         username: username
@@ -138,16 +149,21 @@ userController.changePwd = function (uid, password, callback) {
     });
 };
 
-/*
- var UserSchema = new Schema({
- username: {type: String, unique: true},
- password: String,
- avatar: {type:String, default:''},
- profile: {type:String, default:"这家伙很懒，什么个性签名都没有留下"},
- credit: {type: Number, default: 0}, //积分
- email: {type:String, unique: true},
- phone: String,
- createdAt: {type:Date, default:Date.now }
- */
+userController.updateUser = function (uid, object, callback) {
+    User.update({
+        _id: uid
+    },{
+        "$set": object
+    },function (err) {
+        if(err){
+            console.log(err);
+            return callback(false);
+        }else{
+            return callback(true);
+        }
+    });
+
+};
+
 
 module.exports = userController;

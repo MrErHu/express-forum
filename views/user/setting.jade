@@ -7,7 +7,32 @@ html
             div.panel.panel-default.content-panel-left
                 div.panel-heading 个人设置
                 div.panel-body
-
+                    div.row
+                        div.col-md-3.col_left 用户名:
+                        div.col-md-6
+                            input.form-control(type='text' value=user.username readonly)
+                    div.row
+                        div.col-md-3.col_left 邮箱:
+                        div.col-md-6
+                            input#email.form-control(type='text' value=user.email)
+                    div.row
+                        div.col-md-3.col_left Github:
+                        div.col-md-6
+                            input#github.form-control(type='text' value=user.github)
+                    div.row
+                        div.col-md-3.col_left 个人主页:
+                        div.col-md-6
+                            input#website.form-control(type='text' value=user.website)
+                    div.row
+                        div.col-md-3.col_left 个人简介:
+                        div.col-md-6
+                            textarea#profile.form-control(type='text' rows='4')=user.profile
+                    div.row
+                        div.col-md-5.col-md-offset-2
+                            span#set-tip.text-danger(style='display:none')
+                    div.row
+                        div.col-md-3.col_left
+                            button#set-btn.btn.btn-success 修改
 
     div.row
         div.col-md-9.col-sm-9
@@ -31,5 +56,5 @@ html
                             span#pwd-tip.text-danger(style='display:none')
                     div.row
                         div.col-md-3.col_left
-                            button#pwd-btn.btn.btn-success 提交
+                            button#pwd-btn.btn.btn-success 修改
     script(src='/javascripts/user/setting.js')
