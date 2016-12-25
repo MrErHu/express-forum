@@ -3,6 +3,8 @@
  */
 var express = require('express');
 var router = express.Router();
+var tool = require('../controller/tool');
+var renderLoginUser = tool.renderLoginUser;
 var userController = require('../controller/userController');
 var messageController = require('../controller/messageController');
 
@@ -10,11 +12,14 @@ var AuthChecker = require('../middlewares/AuthChecker');
 router.use(AuthChecker);
 
 router.get('/', function (req, res, next) {
-    var data = {};
-    if(req.session.userinfo){
-        data.userinfo = req.session.userinfo;
-    }
-    res.render('message/message', data);
+    var data = {
+        title: 'JavaScript',
+        userinfo: req.session.userinfo,
+    };
+    //渲染当前登录用户
+    renderLoginUser(req, data, function (data) {
+        res.render('message/message', data);
+    });
 });
 
 router.post('/', function (req, res, next) {
