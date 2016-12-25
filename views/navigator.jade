@@ -14,13 +14,17 @@ body
             else
                 ul.nav.navbar-nav.pull-right
                     li#user-profile.dropdown
-                        a.dropdown-toggle(href='#' data-toggle='dropdown')=userinfo.username
+                        a.no-lr-padding.dropdown-toggle(href='#' data-toggle='dropdown')=userinfo.username
+                            if unreadMessageNum > 0
+                                span.badge(style='float:right;margin-left:10px')=unreadMessageNum
                         ul.dropdown-menu(role='menu')
                             li
                                 a(href='#') 我的主页
                             li.divider
                             li
                                 a(href='/message') 私信
+                                    if unreadMessageNum > 0
+                                        span.badge(style='float:right')=unreadMessageNum
                             li.divider
                             li
                                 a(href='user/setting') 个人设置

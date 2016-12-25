@@ -1,7 +1,7 @@
 /**
  * Created by wanglei on 2016/12/11.
  * user_id: Schema.ObjectId 发送者id，非真实发送者id 引用User
- * friend_id: Schema.ObjectId 发送者id，接受者id，非真实接受者id
+ * friend_id: Schema.ObjectId 接受者id，非真实接受者id
  * sender_id: Schema.ObjectId 发送者id，真实的发送者id
  * receiver_id: Schema.ObjectId 接受者id，真实的接受者id
  * message_type: Number 消息类型1：普通消息 2：系统消息

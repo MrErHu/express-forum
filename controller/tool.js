@@ -2,6 +2,7 @@
  * Created by wanglei on 2016/12/11.
  */
 var userController = require('./userController');
+var messageController = require('./messageController');
 var moment = require('moment');
 
 //根据用户是否登录来获取用户的登录信息
@@ -10,7 +11,12 @@ module.exports.renderLoginUser = function (req, data, callback) {
         const id = req.session.userinfo.id;
         userController.queryUserById(id, function (user) {
             data.user = user;
-            callback(data);
+            //如果用户已经登录了，判断当前用户的未读私信数量
+            messageController.getUnreaderMessageNum(id,function (num) {
+                console.log('unreadMessageNum:'+num);
+                data.unreadMessageNum = num;
+                callback(data);
+            });
         });
     } else {
         callback(data);

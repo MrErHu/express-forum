@@ -9,19 +9,19 @@ html
                 div.col-md-2.message-title.no-lr-padding 最近联系
                 div.col-md-1.col-md-offset-9.no-lr-padding
                     button.btn.btn-primary.btn-sm(data-toggle="modal" data-target="#writeMessage") 写私信
-            //div.row.message-item
-            //    div.col-md-1.no-lr-padding.message-image
-            //        img.message-user-image(src='/images/zhihu.jpg')
-            //    div.col-md-11.message-content hellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohello
-            //    div.col-md-11.message-footer
-            //        div.row
-            //            div.col-md-3.message-time 12月8日 11:26
-            //            div.col-md-3.col-md-offset-6.no-lr-padding
-            //                a.message-footer.item 查看对话
-            //                span |
-            //                a.message-footer.item 回复
-            //                span |
-            //                a.message-footer.item 删除
+            div.row.message-item
+                div.col-md-1.no-lr-padding.message-image
+                    img.message-user-image(src='/images/zhihu.jpg')
+                div.col-md-11.message-content hellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohello
+                div.col-md-11.message-footer
+                    div.row
+                        div.col-md-3.message-time 12月8日 11:26
+                        div.col-md-3.col-md-offset-6.no-lr-padding
+                            a.message-footer.item 查看对话
+                            span |
+                            a.message-footer.item 回复
+                            span |
+                            a.message-footer.item 删除
 
 
     include ../message/writeMessage.jade

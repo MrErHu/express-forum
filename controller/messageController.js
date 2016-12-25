@@ -48,5 +48,26 @@ module.exports.sendMessage = function (sender,receiver,mesType,message,callback)
     }
 };
 
+
+module.exports.getUnreaderMessageNum = function (userid, callback) {
+    Message.count({
+        receiver_id: userid,
+        friend_id: userid,
+        status: 1
+    },function (err,num) {
+        if (err) {
+            console.log(err);
+            return callback(0);
+        }else{
+            return callback(num)
+        }
+    });
+};
+
+
+module.exports.getUnreaderMessage = function (userid, callback) {
+
+};
+
 module.exports.commonMes = 1;
 module.exports.sysMes = 2;
